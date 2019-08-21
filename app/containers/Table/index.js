@@ -2,61 +2,18 @@ import React, { Component } from 'react';
 import { compose } from 'redux';
 import { AgGridReact } from 'ag-grid-react';
 import 'ag-grid-enterprise';
+import withTasks from 'containers/WithTasks';
+import columnConfig from './columnConfig';
 import GenderCellRenderer from './genderCellRenderer';
 import 'ag-grid-community/dist/styles/ag-grid.css';
 import 'ag-grid-community/dist/styles/ag-theme-balham.css';
-import withTasks from 'containers/WithTasks';
 
 class Table extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      columnDefs: [
-        {
-          field: 'name',
-          width: 100,
-        },
-        {
-          field: 'gender',
-          width: 90,
-          cellRenderer: 'genderCellRenderer',
-          cellEditor: 'agRichSelectCellEditor',
-          cellEditorParams: {
-            values: ['Male', 'Female'],
-            cellRenderer: 'genderCellRenderer',
-          },
-        },
-        {
-          field: 'country',
-          width: 100,
-          cellEditor: 'agRichSelectCellEditor',
-          cellEditorParams: {
-            cellHeight: 50,
-            values: ['Ireland', 'USA'],
-          },
-        },
-        {
-          field: 'city',
-          width: 70,
-          cellEditor: 'agRichSelectCellEditor',
-          cellEditorParams(params) {
-            const selectedCountry = params.data.country;
-            const allowedCities = countyToCityMap(selectedCountry);
-            return {
-              values: allowedCities,
-              formatValue(value) {
-                return `${value} (${selectedCountry})`;
-              },
-            };
-          },
-        },
-        {
-          field: 'address',
-          width: 200,
-          cellEditor: 'agLargeTextCellEditor',
-        },
-      ],
+      columnDefs: columnConfig,
       frameworkComponents: { genderCellRenderer: GenderCellRenderer },
       defaultColDef: {
         editable: true,
@@ -68,7 +25,6 @@ class Table extends Component {
   onGridReady = params => {
     this.gridApi = params.api;
     this.gridColumnApi = params.columnApi;
-
     params.api.sizeColumnsToFit();
   };
 
