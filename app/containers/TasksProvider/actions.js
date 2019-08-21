@@ -1,13 +1,26 @@
-/*
- *
- * TasksProvider actions
- *
- */
+import {
+  LOAD_TASKS,
+  LOAD_TASKS_SUCCESS,
+  LOAD_TASKS_ERROR,
+} from './constants';
 
-import { DEFAULT_ACTION } from './constants';
-
-export function defaultAction() {
+export function loadTasks() {
   return {
-    type: DEFAULT_ACTION,
+    type: LOAD_TASKS,
+  };
+}
+
+export function tasksLoaded(tasks, username) {
+  return {
+    type: LOAD_TASKS_SUCCESS,
+    tasks,
+    username,
+  };
+}
+
+export function tasksLoadingError(error) {
+  return {
+    type: LOAD_TASKS_ERROR,
+    error,
   };
 }

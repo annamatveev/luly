@@ -1,44 +1,38 @@
-/**
- *
- * TasksProvider
- *
- */
-
-import React, { memo } from 'react';
+import React, { useEffect, memo } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { createStructuredSelector } from 'reselect';
 import { compose } from 'redux';
 
 import { useInjectSaga } from 'utils/injectSaga';
 import { useInjectReducer } from 'utils/injectReducer';
-import makeSelectTasksProvider from './selectors';
 import reducer from './reducer';
 import saga from './saga';
+import { loadTasks } from './actions';
 
-export function TasksProvider() {
+export function TasksProvider(props) {
   useInjectReducer({ key: 'tasksProvider', reducer });
   useInjectSaga({ key: 'tasksProvider', saga });
 
-  return <div />;
+  useEffect(() => props.loadTasks(), []);
+
+  return props.children;
 }
 
 TasksProvider.propTypes = {
-  dispatch: PropTypes.func.isRequired,
+  loadTasks: PropTypes.func.isRequired,
+  children: PropTypes.node,
 };
-
-const mapStateToProps = createStructuredSelector({
-  tasksProvider: makeSelectTasksProvider(),
-});
 
 function mapDispatchToProps(dispatch) {
   return {
-    dispatch,
+    loadTasks: () => {
+      dispatch(loadTasks());
+    },
   };
 }
 
 const withConnect = connect(
-  mapStateToProps,
+  null,
   mapDispatchToProps,
 );
 

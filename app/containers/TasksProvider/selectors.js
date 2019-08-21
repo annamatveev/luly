@@ -1,25 +1,37 @@
 import { createSelector } from 'reselect';
-import { initialState } from './reducer';
+import { initialState } from 'containers/TasksProvider/reducer';
 
-/**
- * Direct selector to the tasksProvider state domain
- */
-
-const selectTasksProviderDomain = state => state.tasksProvider || initialState;
-
-/**
- * Other specific selectors
- */
-
-/**
- * Default selector used by TasksProvider
- */
+const selectTasksProviderDomain = state =>
+  state.get('tasksProvider', initialState);
 
 const makeSelectTasksProvider = () =>
   createSelector(
     selectTasksProviderDomain,
-    substate => substate,
+    substate => substate.toJS(),
+  );
+
+const makeSelectLoading = () =>
+  createSelector(
+    selectTasksProviderDomain,
+    globalState => globalState.get('loading'),
+  );
+
+const makeSelectError = () =>
+  createSelector(
+    selectTasksProviderDomain,
+    globalState => globalState.get('error'),
+  );
+
+const makeSelectTasksData = () =>
+  createSelector(
+    selectTasksProviderDomain,
+    globalState => globalState.get('tasks'),
   );
 
 export default makeSelectTasksProvider;
-export { selectTasksProviderDomain };
+export {
+  selectTasksProviderDomain,
+  makeSelectLoading,
+  makeSelectError,
+  makeSelectTasksData,
+};
