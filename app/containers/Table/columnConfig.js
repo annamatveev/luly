@@ -1,3 +1,12 @@
+
+function countyToCityMap(match) {
+  const map = {
+    Ireland: ['Dublin', 'Cork', 'Galway'],
+    USA: ['New York', 'Los Angeles', 'Chicago', 'Houston'],
+  };
+  return map[match];
+}
+
 export default [
   {
     field: 'name',
