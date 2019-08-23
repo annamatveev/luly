@@ -9,46 +9,23 @@ function countyToCityMap(match) {
 
 export default [
   {
-    field: 'name',
+    field: 'description',
     width: 100,
   },
   {
-    field: 'gender',
-    width: 90,
-    cellRenderer: 'genderCellRenderer',
-    cellEditor: 'agRichSelectCellEditor',
-    cellEditorParams: {
-      values: ['Male', 'Female'],
-      cellRenderer: 'genderCellRenderer',
-    },
-  },
-  {
-    field: 'country',
+    field: 'owner',
     width: 100,
-    cellEditor: 'agRichSelectCellEditor',
-    cellEditorParams: {
-      cellHeight: 50,
-      values: ['Ireland', 'USA'],
-    },
   },
   {
-    field: 'city',
-    width: 70,
-    cellEditor: 'agRichSelectCellEditor',
-    cellEditorParams(params) {
-      const selectedCountry = params.data.country;
-      const allowedCities = countyToCityMap(selectedCountry);
-      return {
-        values: allowedCities,
-        formatValue(value) {
-          return `${value} (${selectedCountry})`;
-        },
-      };
-    },
+    field: 'status',
+    width: 100,
   },
   {
-    field: 'address',
-    width: 200,
-    cellEditor: 'agLargeTextCellEditor',
+    field: 'due_date',
+    width: 100,
   },
-]
+  {
+    field: 'priority',
+    width: 100,
+  },
+];

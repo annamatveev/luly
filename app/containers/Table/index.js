@@ -9,18 +9,14 @@ import 'ag-grid-community/dist/styles/ag-grid.css';
 import 'ag-grid-community/dist/styles/ag-theme-balham.css';
 
 class Table extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      columnDefs: columnConfig,
-      frameworkComponents: { genderCellRenderer: GenderCellRenderer },
-      defaultColDef: {
-        editable: true,
-        resizable: true,
-      },
-    };
-  }
+  state = {
+    columnDefs: columnConfig,
+    frameworkComponents: { genderCellRenderer: GenderCellRenderer },
+    defaultColDef: {
+      editable: true,
+      resizable: true,
+    },
+  };
 
   onGridReady = params => {
     this.gridApi = params.api;
@@ -28,7 +24,7 @@ class Table extends Component {
     params.api.sizeColumnsToFit();
   };
 
-  onCellValueChanged(params) {
+  onCellValueChanged = params => {
     const colId = params.column.getId();
     if (colId === 'country') {
       const selectedCountry = params.data.country;
@@ -39,7 +35,7 @@ class Table extends Component {
         params.node.setDataValue('city', null);
       }
     }
-  }
+  };
 
   render() {
     return (
@@ -58,7 +54,7 @@ class Table extends Component {
             frameworkComponents={this.state.frameworkComponents}
             defaultColDef={this.state.defaultColDef}
             onGridReady={this.onGridReady}
-            onCellValueChanged={this.onCellValueChanged.bind(this)}
+            onCellValueChanged={this.onCellValueChanged}
           />
         </div>
       </div>
