@@ -4,16 +4,16 @@ import { AgGridReact } from 'ag-grid-react';
 import 'ag-grid-enterprise';
 import withTasks from 'containers/WithTasks';
 import columnConfig from './columnConfig';
-import GenderCellRenderer from './genderCellRenderer';
 import 'ag-grid-community/dist/styles/ag-grid.css';
-import 'ag-grid-community/dist/styles/ag-theme-balham.css';
+import 'ag-grid-community/dist/styles/ag-theme-material.css';
 
 class Table extends Component {
   state = {
     columnDefs: columnConfig,
-    frameworkComponents: { genderCellRenderer: GenderCellRenderer },
     defaultColDef: {
       editable: true,
+      sortable: true,
+      filter: true,
       resizable: true,
     },
   };
@@ -39,24 +39,21 @@ class Table extends Component {
 
   render() {
     return (
-      <div style={{ width: '100%', height: '100%' }}>
-        <div
-          id="myGrid"
-          style={{
-            height: '100%',
-            width: '100%',
-          }}
-          className="ag-theme-balham"
-        >
-          <AgGridReact
-            columnDefs={this.state.columnDefs}
-            rowData={this.props.tasks}
-            frameworkComponents={this.state.frameworkComponents}
-            defaultColDef={this.state.defaultColDef}
-            onGridReady={this.onGridReady}
-            onCellValueChanged={this.onCellValueChanged}
-          />
-        </div>
+      <div
+        style={{
+          height: '100%',
+          width: '80%',
+          margin: '0 auto',
+        }}
+        className="ag-theme-material"
+      >
+        <AgGridReact
+          columnDefs={this.state.columnDefs}
+          rowData={this.props.tasks}
+          defaultColDef={this.state.defaultColDef}
+          onGridReady={this.onGridReady}
+          onCellValueChanged={this.onCellValueChanged}
+        />
       </div>
     );
   }

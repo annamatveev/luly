@@ -1,31 +1,26 @@
-
-function countyToCityMap(match) {
-  const map = {
-    Ireland: ['Dublin', 'Cork', 'Galway'],
-    USA: ['New York', 'Los Angeles', 'Chicago', 'Houston'],
-  };
-  return map[match];
-}
+import statusCellRenderer from './statusCellRenderer';
 
 export default [
   {
     field: 'description',
-    width: 100,
+    width: 200,
   },
   {
     field: 'owner',
-    width: 100,
+    width: 50,
   },
   {
     field: 'status',
-    width: 100,
+    width: 50,
+    cellRendererFramework: statusCellRenderer,
   },
   {
     field: 'due_date',
-    width: 100,
+    width: 50,
+    filter: 'agDateColumnFilter',
   },
   {
     field: 'priority',
-    width: 100,
+    width: 50,
   },
 ];
