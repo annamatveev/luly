@@ -26,15 +26,7 @@ class Table extends Component {
 
   onCellValueChanged = params => {
     const colId = params.column.getId();
-    if (colId === 'country') {
-      const selectedCountry = params.data.country;
-      const selectedCity = params.data.city;
-      const allowedCities = countyToCityMap(selectedCountry);
-      const cityMismatch = allowedCities.indexOf(selectedCity) < 0;
-      if (cityMismatch) {
-        params.node.setDataValue('city', null);
-      }
-    }
+
   };
 
   render() {
@@ -58,14 +50,6 @@ class Table extends Component {
       </div>
     );
   }
-}
-
-function countyToCityMap(match) {
-  const map = {
-    Ireland: ['Dublin', 'Cork', 'Galway'],
-    USA: ['New York', 'Los Angeles', 'Chicago', 'Houston'],
-  };
-  return map[match];
 }
 
 export default compose(withTasks)(Table);
