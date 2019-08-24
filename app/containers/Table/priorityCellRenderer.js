@@ -4,23 +4,23 @@ import ColoredCell from './coloredCell';
 
 function generateColor(type) {
   switch (type.toLowerCase()) {
-    case 'not making it':
+    case 'high':
       return 'a5c4a2';
-    case 'working on it':
+    case 'medium':
       return 'ef6969';
-    case 'done':
+    case 'low':
       return '62ace5';
     default:
       return 'caafe0';
   }
 }
 
-export const StatusCellRenderer = props => (
+export const PriorityCellRenderer = props => (
   <ColoredCell color={generateColor(props.value)}>{props.value}</ColoredCell>
 );
 
-StatusCellRenderer.propTypes = {
+PriorityCellRenderer.propTypes = {
   value: PropTypes.string,
 };
 
-export default StatusCellRenderer;
+export default PriorityCellRenderer;

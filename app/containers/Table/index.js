@@ -53,6 +53,7 @@ class Table extends Component {
           defaultColDef={this.state.defaultColDef}
           onGridReady={this.onGridReady}
           onCellValueChanged={this.onCellValueChanged}
+          animateRows
         />
       </div>
     );

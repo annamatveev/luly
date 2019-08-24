@@ -1,4 +1,5 @@
 import statusCellRenderer from './statusCellRenderer';
+import priorityCellRenderer from './priorityCellRenderer';
 
 export default [
   {
@@ -22,5 +23,6 @@ export default [
   {
     field: 'priority',
     width: 50,
+    cellRendererFramework: priorityCellRenderer,
   },
 ];
