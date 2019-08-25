@@ -12,10 +12,11 @@ const ngrok =
     ? require('ngrok')
     : false;
 const { resolve } = require('path');
+var bodyParser = require('body-parser');
 const app = express();
 const routes = require('./routes');
 const db = require('./db');
-
+app.use(bodyParser.json())
 // If you need a backend, e.g. an API, add your custom backend-specific middleware here
 app.use('/api', routes);
 

@@ -10,4 +10,28 @@ router.get(
   }),
 );
 
+router.post(
+  '/task',
+  asyncMiddleware(async (req, res) => {
+    const task = await tasksStore.updateTask(req.body);
+    res.send(task);
+  }),
+);
+
+router.delete(
+  '/task',
+  asyncMiddleware(async (req, res) => {
+    const task = await tasksStore.deleteTask(req.body.taskId);
+    res.send(task);
+  }),
+);
+
+router.put(
+  '/task',
+  asyncMiddleware(async (req, res) => {
+    const task = await tasksStore.addNewTask(req.body);
+    res.send(task);
+  }),
+);
+
 module.exports = router;
