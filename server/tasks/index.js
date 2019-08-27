@@ -33,7 +33,6 @@ function updateTask(task) {
     collection
       .replaceOne({ _id: ObjectId(_id) }, rest)
       .then(function(response) {
-        console.log(response.modifiedCount);
         return resolve(JSON.stringify(response.ops[0]));
       });
   });

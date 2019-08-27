@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { compose } from 'redux';
 import { AgGridReact } from 'ag-grid-react';
+import axios from 'axios';
 import 'ag-grid-enterprise';
 import withTasks from 'containers/WithTasks';
 import columnConfig from './columnConfig';
@@ -25,8 +26,7 @@ class Table extends Component {
   };
 
   onCellValueChanged = params => {
-    const colId = params.column.getId();
-
+    axios.post(`http://localhost:3000/api/task`, params.data);
   };
 
   render() {

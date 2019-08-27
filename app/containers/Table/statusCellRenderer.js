@@ -5,13 +5,15 @@ import ColoredCell from './coloredCell';
 function generateColor(type) {
   switch (type.toLowerCase()) {
     case 'not making it':
-      return 'a5c4a2';
+      return 'e2445c';
     case 'working on it':
-      return 'ef6969';
+      return 'faab3c';
     case 'done':
-      return '62ace5';
+      return '00c875';
+    case 'stuck':
+      return 'e2445c';
     default:
-      return 'caafe0';
+      return '0086c0';
   }
 }
 
