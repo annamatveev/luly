@@ -2,6 +2,7 @@ import statusCellRenderer from './statusCellRenderer';
 import priorityCellRenderer from './priorityCellRenderer';
 import OwnerCellRenderer from './ownerCellRenderer';
 import StoryPointsCellRenderer from './storyPointsCellRenderer';
+import JiraIssueCellRenderer from './jiraIssueCellRenderer';
 
 export default [
   {
@@ -33,16 +34,28 @@ export default [
     field: 'priority',
     width: 50,
     cellRendererFramework: priorityCellRenderer,
+    cellEditor: 'agRichSelectCellEditor',
+    cellEditorParams: {
+      values: ['High', 'Medium', 'Low', 'Interrupt'],
+    },
   },
   {
     field: 'estimated_sp',
     headerName: 'Estimated SP',
-    width: 50,
+    width: 40,
     cellRendererFramework: StoryPointsCellRenderer,
   },
   {
     field: 'actual_sp',
     headerName: 'Actual SP',
-    width: 50,
+    width: 40,
+    cellRendererFramework: StoryPointsCellRenderer,
+  },
+  {
+    field: 'jira_issue',
+    headerName: 'Jira Issue',
+    width: 40,
+    cellRendererFramework: JiraIssueCellRenderer,
+
   },
 ];

@@ -17,11 +17,10 @@ export default function HomePage() {
       <h1>
         <FormattedMessage {...messages.header} />
       </h1>
-      <div style={{ height: '100vh' }}>
-        <Table />
-      </div>
       <TasksProvider>
-        <div>Kaki</div>
+        <div style={{ height: '100vh' }}>
+          <Table />
+        </div>
       </TasksProvider>
     </React.Fragment>
   );

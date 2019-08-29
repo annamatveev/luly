@@ -42,7 +42,7 @@ export default function OwnerCellRenderer(props) {
           <Avatar
             className={classes.avatar}
             style={{
-              backgroundColor: toMaterialStyle(acronym, '600').backgroundColor,
+              backgroundColor: toMaterialStyle(acronym, '300').backgroundColor,
             }}
           >
             {acronym}
