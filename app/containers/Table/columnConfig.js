@@ -1,7 +1,7 @@
 import statusCellRenderer from './statusCellRenderer';
 import priorityCellRenderer from './priorityCellRenderer';
-import dueDateCellRenderer from './dueDateCellRenderer';
 import OwnerCellRenderer from './ownerCellRenderer';
+import StoryPointsCellRenderer from './storyPointsCellRenderer';
 
 export default [
   {
@@ -16,12 +16,12 @@ export default [
   },
   {
     field: 'owner',
-    width: 50,
+    width: 30,
     cellRendererFramework: OwnerCellRenderer,
   },
   {
     field: 'status',
-    width: 50,
+    width: 40,
     cellStyle: { padding: 0 },
     cellRendererFramework: statusCellRenderer,
     cellEditor: 'agRichSelectCellEditor',
@@ -30,13 +30,19 @@ export default [
     },
   },
   {
-    field: 'due_date',
-    width: 50,
-    filter: 'agDateColumnFilter',
-  },
-  {
     field: 'priority',
     width: 50,
     cellRendererFramework: priorityCellRenderer,
+  },
+  {
+    field: 'estimated_sp',
+    headerName: 'Estimated SP',
+    width: 50,
+    cellRendererFramework: StoryPointsCellRenderer,
+  },
+  {
+    field: 'actual_sp',
+    headerName: 'Actual SP',
+    width: 50,
   },
 ];

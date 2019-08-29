@@ -4,15 +4,26 @@ import { makeStyles } from '@material-ui/core/styles';
 import Avatar from '@material-ui/core/Avatar';
 import Grid from '@material-ui/core/Grid';
 import toMaterialStyle from 'material-color-hash';
+import Tooltip from '@material-ui/core/Tooltip';
+import Zoom from '@material-ui/core/Zoom';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
   avatar: {
     width: '25px',
     height: '25px',
-    'font-size': '12px',
+    'font-size': '11px',
     margin: 10,
+    color: 'white',
   },
-});
+  fab: {
+    margin: theme.spacing(2),
+  },
+  absolute: {
+    position: 'absolute',
+    bottom: theme.spacing(2),
+    right: theme.spacing(3),
+  },
+}));
 
 export default function OwnerCellRenderer(props) {
   const classes = useStyles();
@@ -27,15 +38,16 @@ export default function OwnerCellRenderer(props) {
   return (
     <React.Fragment>
       <Grid container>
-        <Avatar
-          className={classes.avatar}
-          style={{
-            backgroundColor: toMaterialStyle(acronym, '700').backgroundColor,
-          }}
-        >
-          {acronym}
-        </Avatar>
-        <span>{props.value}</span>
+        <Tooltip TransitionComponent={Zoom} title={props.value} placement="top">
+          <Avatar
+            className={classes.avatar}
+            style={{
+              backgroundColor: toMaterialStyle(acronym, '600').backgroundColor,
+            }}
+          >
+            {acronym}
+          </Avatar>
+        </Tooltip>
       </Grid>
     </React.Fragment>
   );
