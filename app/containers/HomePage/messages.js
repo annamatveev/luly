@@ -10,6 +10,10 @@ export const scope = 'app.containers.HomePage';
 export default defineMessages({
   header: {
     id: `${scope}.header`,
-    defaultMessage: 'Team Overview',
+    defaultMessage: 'Overview',
+  },
+  teamName: {
+    id: `${scope}.header`,
+    defaultMessage: 'Team',
   },
 });

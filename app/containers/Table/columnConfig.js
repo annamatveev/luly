@@ -1,8 +1,8 @@
-import statusCellRenderer from './statusCellRenderer';
-import priorityCellRenderer from './priorityCellRenderer';
-import OwnerCellRenderer from './ownerCellRenderer';
-import StoryPointsCellRenderer from './storyPointsCellRenderer';
-import JiraIssueCellRenderer from './jiraIssueCellRenderer';
+import JiraIssueCellRenderer from 'components/JiraIssueCellRenderer';
+import OwnerCellRenderer from 'components/OwnerCellRenderer';
+import statusCellRenderer from 'components/StatusCellRenderer';
+import priorityCellRenderer from 'components/PriorityCellRenderer';
+import StoryPointsCellRenderer from 'components/StoryPointsCellRenderer';
 
 export default [
   {

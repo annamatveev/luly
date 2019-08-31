@@ -3,10 +3,13 @@ import { compose } from 'redux';
 import { AgGridReact } from 'ag-grid-react';
 import axios from 'axios';
 import 'ag-grid-enterprise';
-import withTasks from 'containers/WithTasks';
-import columnConfig from './columnConfig';
 import 'ag-grid-community/dist/styles/ag-grid.css';
 import 'ag-grid-community/dist/styles/ag-theme-material.css';
+import withTasks from 'containers/WithTasks';
+import TableWrapper from 'components/TableWrapper';
+import columnConfig from './columnConfig';
+
+const API_PATH = 'http://localhost:3000/api';
 
 class Table extends Component {
   state = {
@@ -23,15 +26,16 @@ class Table extends Component {
     this.gridApi = params.api;
     this.gridColumnApi = params.columnApi;
     params.api.sizeColumnsToFit();
+    setTimeout(() => params.api.sizeColumnsToFit(), 500);
   };
 
   onCellValueChanged = params => {
-    axios.post(`http://localhost:3000/api/task`, params.data);
+    axios.post(`${API_PATH}/task`, params.data);
   };
 
   render() {
     return (
-      <div
+      <TableWrapper
         style={{
           height: '100%',
           width: '80%',
@@ -47,7 +51,7 @@ class Table extends Component {
           onCellValueChanged={this.onCellValueChanged}
           animateRows
         />
-      </div>
+      </TableWrapper>
     );
   }
 }

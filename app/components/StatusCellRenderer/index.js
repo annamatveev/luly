@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import ColoredCell from './coloredCell';
+import ColoredCell from 'components/ColoredCell';
 
 function generateColor(type) {
   switch (type.toLowerCase()) {
