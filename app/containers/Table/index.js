@@ -8,6 +8,7 @@ import 'ag-grid-community/dist/styles/ag-theme-material.css';
 import withTasks from 'containers/WithTasks';
 import TableWrapper from 'components/TableWrapper';
 import columnConfig from './columnConfig';
+import getContextMenuItems from './contextMenuParams';
 
 const API_PATH = 'http://localhost:3000/api';
 
@@ -49,6 +50,8 @@ class Table extends Component {
           defaultColDef={this.state.defaultColDef}
           onGridReady={this.onGridReady}
           onCellValueChanged={this.onCellValueChanged}
+          getContextMenuItems={getContextMenuItems}
+          debug
           animateRows
         />
       </TableWrapper>

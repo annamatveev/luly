@@ -21,7 +21,7 @@ router.post(
 router.delete(
   '/task',
   asyncMiddleware(async (req, res) => {
-    const task = await tasksStore.deleteTask(req.body.taskId);
+    const task = await tasksStore.deleteTask(req.query.taskId);
     res.send(task);
   }),
 );

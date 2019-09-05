@@ -18,9 +18,10 @@ function addNewTask(task) {
 }
 
 function deleteTask(taskId) {
+  console.log(taskId);
   return new Promise(resolve => {
     const collection = db.get().collection('tasks');
-    collection.deleteOne({ _id: taskId }).then(function(response) {
+    collection.deleteOne({ _id: ObjectId(taskId) }).then(function(response) {
       return resolve(JSON.stringify(response.result));
     });
   });
