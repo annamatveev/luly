@@ -7,9 +7,13 @@ export default function getContextMenuItems(contextParams) {
       name: 'Delete',
       shortcut: 'Alt + W',
       action() {
-        axios.delete(`${API_PATH}/task`, {
-          params: { taskId: contextParams.node.data._id }, // eslint-disable-line no-underscore-dangle
-        });
+        axios
+          .delete(`${API_PATH}/task`, {
+            params: { taskId: contextParams.node.data._id }, // eslint-disable-line no-underscore-dangle
+          })
+          .then(() => {
+            contextParams.api.updateRowData({ remove: [contextParams.node.data] });
+          });
       },
     },
     'separator',
