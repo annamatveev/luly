@@ -1,6 +1,6 @@
 /**
  *
- * Asynchronously loads the component for ColoredCell
+ * Asynchronously loads the component for ColoredChip
  *
  */
 

@@ -1,22 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import ColoredCell from 'components/ColoredCell';
+import ColoredChipCell from 'components/ColoredChipCell';
 
-function generateColor(type) {
-  switch (type.toLowerCase()) {
-    case 'high':
-      return 'e2445c';
-    case 'medium':
-      return 'faab3c';
-    case 'low':
-      return '00c875';
-    default:
-      return '0086c0';
-  }
-}
+const PRIORITY_TO_COLOR = {
+  high: 'red',
+  medium: 'yellow',
+  low: 'green',
+  interrupt: 'blue',
+};
 
 export const PriorityCellRenderer = props => (
-  <ColoredCell color={generateColor(props.value)}>{props.value}</ColoredCell>
+  <ColoredChipCell
+    color={PRIORITY_TO_COLOR[props.value.toLowerCase()]}
+    value={props.value}
+  />
 );
 
 PriorityCellRenderer.propTypes = {
