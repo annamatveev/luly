@@ -16,9 +16,11 @@ export default function getContextMenuItems(contextParams) {
             });
           });
       },
+      icon: '<i class="ag-icon ag-icon-not-allowed"></i>',
     },
     {
       name: 'Add New Task',
+      shortcut: 'Alt + N',
       action() {
         axios
           .put(`${API_PATH}/task`, {
@@ -37,6 +39,7 @@ export default function getContextMenuItems(contextParams) {
             });
           });
       },
+      icon: '<i class="ag-icon ag-icon-plus"></i>',
     },
     'separator',
     'copy',

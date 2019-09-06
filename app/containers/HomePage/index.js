@@ -14,12 +14,12 @@ import TasksProvider from '../TasksProvider';
 
 const HeaderWrapper = styled.h1`
   padding-bottom: 12px;
-  margin: 0;
   padding-top: 8px;
   padding-left: 32px;
   background: white;
-  margin-bottom: 32px;
+  margin: 0 0 32px;
   box-shadow: 0px 2px 2px 0px #c4c4c4;
+  border-top: 4px solid rgba(22,57,255,0.64);
 `;
 const TabName = styled.span`
   font-weight: 200;

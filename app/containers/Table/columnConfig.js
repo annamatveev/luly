@@ -12,7 +12,7 @@ export default [
     maxWidth: 500,
     cellEditor: 'agLargeTextCellEditor',
     cellEditorParams: {
-      maxLength: '500', // override the editor defaults
+      maxLength: '600', // override the editor defaults
       cols: '60',
       rows: '3',
     },
