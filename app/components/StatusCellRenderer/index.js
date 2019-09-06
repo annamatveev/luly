@@ -7,12 +7,15 @@ const STATUS_TO_COLOR = {
   stuck: 'red',
   'working on it': 'yellow',
   done: 'green',
+  none: 'grey',
 };
 
 export const StatusCellRenderer = props => (
   <ColoredChipCell
-    color={STATUS_TO_COLOR[props.value.toLowerCase()]}
-    value={props.value}
+    color={
+      STATUS_TO_COLOR[(props.value && props.value.toLowerCase()) || 'none']
+    }
+    value={props.value || 'None'}
   />
 );
 

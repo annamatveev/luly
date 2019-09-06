@@ -7,12 +7,15 @@ const PRIORITY_TO_COLOR = {
   medium: 'yellow',
   low: 'green',
   interrupt: 'blue',
+  none: 'grey',
 };
 
 export const PriorityCellRenderer = props => (
   <ColoredChipCell
-    color={PRIORITY_TO_COLOR[props.value.toLowerCase()]}
-    value={props.value}
+    color={
+      PRIORITY_TO_COLOR[(props.value && props.value.toLowerCase()) || 'none']
+    }
+    value={props.value || 'None'}
   />
 );
 

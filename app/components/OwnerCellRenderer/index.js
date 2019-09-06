@@ -13,7 +13,6 @@ const useStyles = makeStyles(theme => ({
     height: '25px',
     'font-size': '11px',
     margin: 10,
-    'font-weight': 'bold',
   },
   fab: {
     margin: theme.spacing(2),
@@ -42,10 +41,11 @@ export default function OwnerCellRenderer(props) {
           <Avatar
             className={classes.avatar}
             style={{
-              backgroundColor: toMaterialStyle(acronym, '200').backgroundColor,
+              backgroundColor: toMaterialStyle(acronym, '100').backgroundColor,
+              color: toMaterialStyle(acronym, '800').backgroundColor,
             }}
           >
-            {acronym}
+            {acronym || '?'}
           </Avatar>
         </Tooltip>
       </Grid>

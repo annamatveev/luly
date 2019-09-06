@@ -22,7 +22,7 @@ export default [
   },
   {
     field: 'status',
-    width: 40,
+    width: 30,
     cellStyle: { padding: 0 },
     cellRendererFramework: statusCellRenderer,
     cellEditor: 'agRichSelectCellEditor',
@@ -32,7 +32,7 @@ export default [
   },
   {
     field: 'priority',
-    width: 50,
+    width: 30,
     cellRendererFramework: priorityCellRenderer,
     cellEditor: 'agRichSelectCellEditor',
     cellEditorParams: {
@@ -41,13 +41,13 @@ export default [
   },
   {
     field: 'estimated_sp',
-    headerName: 'Estimated SP',
-    width: 40,
+    headerName: 'Estimated Effort',
+    width: 43,
     cellRendererFramework: StoryPointsCellRenderer,
   },
   {
     field: 'actual_sp',
-    headerName: 'Actual SP',
+    headerName: 'Actual Effort',
     width: 40,
     cellRendererFramework: StoryPointsCellRenderer,
   },

@@ -4,7 +4,8 @@ const COLOR_TO_DESIGN = {
   red: { background: 'e2445c40', text: '8d3b3b' },
   yellow: { background: 'faab3c40', text: '5c5000' },
   green: { background: '44e27b40', text: '123d14' },
-  blue: { background: '44e27b40', text: '123d14' },
+  blue: { background: 'ccf5ff', text: '003b4d' },
+  grey: { background: 'e0e0e0', text: '4d4d4d' },
 };
 
 const ColoredChip = styled.span`
