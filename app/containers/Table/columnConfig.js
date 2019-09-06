@@ -3,6 +3,7 @@ import OwnerCellRenderer from 'components/OwnerCellRenderer';
 import statusCellRenderer from 'components/StatusCellRenderer';
 import priorityCellRenderer from 'components/PriorityCellRenderer';
 import StoryPointsCellRenderer from 'components/StoryPointsCellRenderer';
+import PriorityComparator from './priorityComparator';
 
 export default [
   {
@@ -27,7 +28,13 @@ export default [
     cellRendererFramework: statusCellRenderer,
     cellEditor: 'agRichSelectCellEditor',
     cellEditorParams: {
-      values: ['Stuck', 'Working on it', 'Done', 'Not making it', 'Next in line'],
+      values: [
+        'Stuck',
+        'Working on it',
+        'Done',
+        'Not making it',
+        'Next in line',
+      ],
     },
   },
   {
@@ -38,6 +45,7 @@ export default [
     cellEditorParams: {
       values: ['High', 'Medium', 'Low', 'Interrupt'],
     },
+    comparator: PriorityComparator,
   },
   {
     field: 'estimated_sp',
@@ -56,6 +64,5 @@ export default [
     headerName: 'Jira Issue',
     width: 40,
     cellRendererFramework: JiraIssueCellRenderer,
-
   },
 ];
