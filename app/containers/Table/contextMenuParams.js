@@ -4,7 +4,7 @@ const API_PATH = 'http://localhost:3000/api';
 export default function getContextMenuItems(contextParams) {
   return [
     {
-      name: 'Delete',
+      name: 'Delete This Task',
       action() {
         axios
           .delete(`${API_PATH}/task`, {
@@ -22,15 +22,19 @@ export default function getContextMenuItems(contextParams) {
       action() {
         axios
           .put(`${API_PATH}/task`, {
-            description: 'New Item',
+            description: '[Area] > Change that..',
             owner: '',
-            status: '',
+            status: 'Next in line',
+            priority: 'Low',
           })
           .then(response => {
-            contextParams.api.updateRowData({
+            const newRow = contextParams.api.updateRowData({
               add: [response.data],
             });
-            console.log(response);
+            contextParams.api.startEditingCell({
+              rowIndex: newRow.add.pop().rowIndex,
+              colKey: 'description',
+            });
           });
       },
     },

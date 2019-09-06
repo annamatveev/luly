@@ -7,12 +7,12 @@ import StoryPointsCellRenderer from 'components/StoryPointsCellRenderer';
 export default [
   {
     field: 'description',
-    width: 200,
+    maxWidth: 500,
     cellEditor: 'agLargeTextCellEditor',
     cellEditorParams: {
-      maxLength: '300', // override the editor defaults
-      cols: '50',
-      rows: '6',
+      maxLength: '500', // override the editor defaults
+      cols: '60',
+      rows: '3',
     },
   },
   {
@@ -27,7 +27,7 @@ export default [
     cellRendererFramework: statusCellRenderer,
     cellEditor: 'agRichSelectCellEditor',
     cellEditorParams: {
-      values: ['Stuck', 'Working on it', 'Done', 'Not making it'],
+      values: ['Stuck', 'Working on it', 'Done', 'Not making it', 'Next in line'],
     },
   },
   {

@@ -39,7 +39,7 @@ class Table extends Component {
       <TableWrapper
         style={{
           height: '100%',
-          width: '80%',
+          width: '90%',
           margin: '0 auto',
         }}
         className="ag-theme-material"

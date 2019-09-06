@@ -6,6 +6,7 @@ const STATUS_TO_COLOR = {
   'not making it': 'red',
   stuck: 'red',
   'working on it': 'yellow',
+  'next in line': 'grey',
   done: 'green',
   none: 'grey',
 };
