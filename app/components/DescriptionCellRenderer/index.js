@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Ribbon from 'components/Ribbon';
-
+import DefaultDescription from 'components/DefaultDescription';
 
 const EPIC_SEPARATOR = '>';
 function DescriptionCellRenderer(props) {
@@ -18,7 +18,9 @@ function DescriptionCellRenderer(props) {
   return (
     <div>
       {epic && <Ribbon>{epic}</Ribbon>}
-      {description.join(' > ')}
+      {description.join(' > ') || (
+        <DefaultDescription message="Add a description for the task" />
+      )}
     </div>
   );
 }

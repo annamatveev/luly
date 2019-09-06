@@ -22,7 +22,7 @@ export default function getContextMenuItems(contextParams) {
       action() {
         axios
           .put(`${API_PATH}/task`, {
-            description: '[Area] > Change that..',
+            description: '',
             owner: '',
             status: 'Next in line',
             priority: 'Low',
