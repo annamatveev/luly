@@ -41,8 +41,8 @@ export default function OwnerCellRenderer(props) {
           <Avatar
             className={classes.avatar}
             style={{
-              backgroundColor: toMaterialStyle(acronym, '100').backgroundColor,
-              color: toMaterialStyle(acronym, '800').backgroundColor,
+              backgroundColor: toMaterialStyle(acronym, '50').backgroundColor,
+              color: toMaterialStyle(acronym, '600').backgroundColor,
             }}
           >
             {acronym || '?'}

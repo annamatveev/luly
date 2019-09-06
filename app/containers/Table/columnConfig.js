@@ -3,6 +3,7 @@ import OwnerCellRenderer from 'components/OwnerCellRenderer';
 import statusCellRenderer from 'components/StatusCellRenderer';
 import priorityCellRenderer from 'components/PriorityCellRenderer';
 import StoryPointsCellRenderer from 'components/StoryPointsCellRenderer';
+import DescriptionCellRenderer from 'components/DescriptionCellRenderer';
 import PriorityComparator from './priorityComparator';
 
 export default [
@@ -15,6 +16,7 @@ export default [
       cols: '60',
       rows: '3',
     },
+    cellRendererFramework: DescriptionCellRenderer,
   },
   {
     field: 'owner',
