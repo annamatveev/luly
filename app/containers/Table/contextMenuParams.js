@@ -4,7 +4,7 @@ const API_PATH = 'http://localhost:3000/api';
 export default function getContextMenuItems(contextParams) {
   return [
     {
-      name: 'Delete This Task',
+      name: 'Archive This Task',
       action() {
         axios
           .delete(`${API_PATH}/task`, {
@@ -16,7 +16,7 @@ export default function getContextMenuItems(contextParams) {
             });
           });
       },
-      icon: '<i class="ag-icon ag-icon-not-allowed"></i>',
+      icon: '<i class="ag-icon ag-icon-save"></i>',
     },
     {
       name: 'Add New Task',
