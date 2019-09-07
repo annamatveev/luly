@@ -4,7 +4,9 @@ const db = require('../db');
 function getAllTasks() {
   return new Promise(resolve => {
     const collection = db.get().collection('tasks');
-    collection.find().toArray((error, results) => resolve(results));
+    collection
+      .find({ taskState: null })
+      .toArray((error, results) => resolve(results));
   });
 }
 
@@ -18,11 +20,18 @@ function addNewTask(task) {
 }
 
 function deleteTask(taskId) {
-  console.log(taskId);
   return new Promise(resolve => {
     const collection = db.get().collection('tasks');
-    collection.deleteOne({ _id: ObjectId(taskId) }).then(function(response) {
-      return resolve(JSON.stringify(response.result));
+    collection.findOne({ _id: ObjectId(taskId) }, function(err, task) {
+      console.log(task);
+      collection
+        .replaceOne(
+          { _id: ObjectId(taskId) },
+          Object.assign({ taskState: 'archived' }, task),
+        )
+        .then(function(response) {
+          return resolve(JSON.stringify(response.ops[0]));
+        });
     });
   });
 }

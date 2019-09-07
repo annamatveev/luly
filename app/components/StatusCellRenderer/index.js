@@ -12,12 +12,14 @@ const STATUS_TO_COLOR = {
 };
 
 export const StatusCellRenderer = props => (
-  <ColoredChipCell
-    color={
-      STATUS_TO_COLOR[(props.value && props.value.toLowerCase()) || 'none']
-    }
-    value={props.value || 'None'}
-  />
+  <React.Fragment>
+    <ColoredChipCell
+      color={
+        STATUS_TO_COLOR[(props.value && props.value.toLowerCase()) || 'none']
+      }
+      value={props.value || 'None'}
+    />
+  </React.Fragment>
 );
 
 StatusCellRenderer.propTypes = {
