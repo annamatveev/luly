@@ -2,7 +2,7 @@
 
 const express = require('express');
 const logger = require('./logger');
-
+const _ = require('lodash');
 const argv = require('./argv');
 const port = require('./port');
 const setup = require('./middlewares/frontendMiddleware');
@@ -16,6 +16,13 @@ var bodyParser = require('body-parser');
 const app = express();
 const routes = require('./routes');
 const db = require('./db');
+
+const config = require('./config');
+const defaultConfig = config.development;
+const environment = process.env.NODE_ENV || 'development';
+const environmentConfig = config[environment];
+const finalConfig = _.merge(defaultConfig, environmentConfig);
+
 app.use(bodyParser.json())
 // If you need a backend, e.g. an API, add your custom backend-specific middleware here
 app.use('/api', routes);
@@ -39,7 +46,7 @@ app.get('*.js', (req, res, next) => {
 });
 
 // Connect to mongo
-db.connect('mongodb://localhost:27017', function(err) {
+db.connect(finalConfig.mongodb_uri, function(err) {
   if (err) {
     console.log('Unable to connect to Mongo.');
     process.exit(1);
