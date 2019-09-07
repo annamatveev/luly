@@ -12,20 +12,19 @@ const ngrok =
     ? require('ngrok')
     : false;
 const { resolve } = require('path');
-var bodyParser = require('body-parser');
 const app = express();
-const routes = require('./routes');
-const db = require('./db');
 
+const routes = require('./routes');
+app.use('/api', routes);
+const bodyParser = require('body-parser');
+app.use(bodyParser.json());
+
+const db = require('./db');
 const config = require('./config');
 const defaultConfig = config.development;
 const environment = process.env.NODE_ENV || 'development';
 const environmentConfig = config[environment];
 const finalConfig = _.merge(defaultConfig, environmentConfig);
-
-app.use(bodyParser.json())
-// If you need a backend, e.g. an API, add your custom backend-specific middleware here
-app.use('/api', routes);
 
 // In production we need to pass these values in instead of relying on webpack
 setup(app, {

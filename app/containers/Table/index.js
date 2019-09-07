@@ -10,7 +10,7 @@ import TableWrapper from 'components/TableWrapper';
 import columnConfig from './columnConfig';
 import getContextMenuItems from './contextMenuParams';
 
-const API_PATH = 'http://localhost:3000/api';
+const API_PATH = '/api';
 
 class Table extends Component {
   state = {

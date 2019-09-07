@@ -1,5 +1,5 @@
 import axios from 'axios/index';
-const API_PATH = 'http://localhost:3000/api';
+const API_PATH = '/api';
 
 export default function getContextMenuItems(contextParams) {
   return [

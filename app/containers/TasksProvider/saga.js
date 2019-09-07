@@ -8,7 +8,7 @@ import {
 import request from 'utils/request';
 
 export function* getTasks() {
-  const requestURL = `http://localhost:3000/api/tasks`;
+  const requestURL = `/api/tasks`;
 
   try {
     const tasks = yield call(request, requestURL);
