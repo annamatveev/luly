@@ -10,8 +10,6 @@ import TableWrapper from 'components/TableWrapper';
 import columnConfig from './columnConfig';
 import getContextMenuItems from './contextMenuParams';
 
-const API_PATH = '/api';
-
 class Table extends Component {
   state = {
     columnDefs: columnConfig,
@@ -31,7 +29,7 @@ class Table extends Component {
   };
 
   onCellValueChanged = params => {
-    axios.post(`${API_PATH}/task`, params.data);
+    axios.post(`/api/task`, params.data);
   };
 
   render() {

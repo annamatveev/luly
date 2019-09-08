@@ -1,5 +1,4 @@
 import axios from 'axios/index';
-const API_PATH = '/api';
 
 export default function getContextMenuItems(contextParams) {
   return [
@@ -7,7 +6,7 @@ export default function getContextMenuItems(contextParams) {
       name: 'Archive This Task',
       action() {
         axios
-          .delete(`${API_PATH}/task`, {
+          .delete(`/api/task`, {
             params: { taskId: contextParams.node.data._id }, // eslint-disable-line no-underscore-dangle
           })
           .then(() => {
@@ -23,7 +22,7 @@ export default function getContextMenuItems(contextParams) {
       shortcut: 'Alt + N',
       action() {
         axios
-          .put(`${API_PATH}/task`, {
+          .put(`/api/task`, {
             description: '',
             owner: '',
             status: 'Next in line',
