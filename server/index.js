@@ -39,8 +39,6 @@ app.get('*.js', (req, res, next) => {
   next();
 });
 
-console.log(config);
-
 // Connect to mongo
 db.connect(config.mongodb_uri, function(err) {
   if (err) {
