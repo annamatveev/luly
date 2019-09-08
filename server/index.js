@@ -13,13 +13,13 @@ const ngrok =
 const { resolve } = require('path');
 const app = express();
 
-const routes = require('./routes');
-app.use('/api', routes);
-const bodyParser = require('body-parser');
-app.use(bodyParser.json());
-
 const db = require('./db');
 const config = require('./config');
+
+const bodyParser = require('body-parser');
+app.use(bodyParser.json());
+const routes = require('./routes');
+app.use('/api', routes);
 
 // In production we need to pass these values in instead of relying on webpack
 setup(app, {
