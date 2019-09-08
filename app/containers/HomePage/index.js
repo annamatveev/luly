@@ -1,16 +1,14 @@
 import React from 'react';
-import Table from '../TasksTable';
-import TasksProvider from '../TasksProvider';
 import Header from 'components/Header';
+import TasksTable from '../TasksTable';
+import TasksProvider from '../TasksProvider';
 
 export default function HomePage() {
   return (
     <React.Fragment>
       <Header />
       <TasksProvider>
-        <div style={{ height: 'calc(100vh - 120px)' }}>
-          <Table />
-        </div>
+        <TasksTable />
       </TasksProvider>
     </React.Fragment>
   );

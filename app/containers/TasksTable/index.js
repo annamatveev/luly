@@ -6,9 +6,10 @@ import 'ag-grid-community/dist/styles/ag-grid.css';
 import 'ag-grid-community/dist/styles/ag-theme-material.css';
 import withTasks from 'containers/WithTasks';
 import TableWrapper from 'components/TableWrapper';
+import { editTask } from 'services/TasksApiWrapper';
+import PropTypes from 'prop-types';
 import columnConfig from './columnConfig';
 import getContextMenuItems from './contextMenuParams';
-import { editTask } from 'services/TasksApiWrapper';
 
 class TasksTable extends Component {
   state = {
@@ -48,5 +49,9 @@ class TasksTable extends Component {
     );
   }
 }
+
+TasksTable.propTypes = {
+  tasks: PropTypes.array,
+};
 
 export default compose(withTasks)(TasksTable);

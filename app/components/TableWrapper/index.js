@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const TableWrapper = styled.div`
   box-shadow: 0px 2px 0px 1px #c4c4c4;
-  height: 100%;
+  height: calc(100vh - 120px);
   width: 90%;
   margin: 0 auto;
 
