@@ -51,7 +51,7 @@ class Table extends Component {
           onGridReady={this.onGridReady}
           onCellValueChanged={this.onCellValueChanged}
           getContextMenuItems={getContextMenuItems}
-          debug
+          // debug
           animateRows
         />
       </TableWrapper>

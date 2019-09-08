@@ -9,7 +9,7 @@ import PriorityComparator from './priorityComparator';
 export default [
   {
     field: 'description',
-    minWidth: 100,
+    minWidth: 200,
     maxWidth: 500,
     cellEditor: 'agLargeTextCellEditor',
     cellEditorParams: {
@@ -21,13 +21,14 @@ export default [
   },
   {
     field: 'owner',
-    width: 30,
+    width: 70,
+    minWidth: 70,
     cellRendererFramework: OwnerCellRenderer,
   },
   {
     field: 'status',
-    width: 30,
-    minWidth: 30,
+    width: 70,
+    minWidth: 70,
     cellStyle: { padding: 0 },
     cellRendererFramework: statusCellRenderer,
     cellEditor: 'agRichSelectCellEditor',
@@ -43,8 +44,8 @@ export default [
   },
   {
     field: 'priority',
-    width: 30,
-    minWidth: 30,
+    width: 70,
+    minWidth: 70,
     cellRendererFramework: priorityCellRenderer,
     cellEditor: 'agRichSelectCellEditor',
     cellEditorParams: {
@@ -55,22 +56,22 @@ export default [
   {
     field: 'estimated_sp',
     headerName: 'Estimated Effort',
-    width: 43,
-    minWidth: 43,
+    width: 100,
+    minWidth: 100,
     cellRendererFramework: StoryPointsCellRenderer,
   },
   {
     field: 'actual_sp',
     headerName: 'Actual Effort',
-    width: 40,
-    minWidth: 40,
+    width: 100,
+    minWidth: 100,
     cellRendererFramework: StoryPointsCellRenderer,
   },
   {
     field: 'jira_issue',
     headerName: 'Jira Issue',
-    width: 40,
-    minWidth: 40,
+    width: 100,
+    minWidth: 100,
     cellRendererFramework: JiraIssueCellRenderer,
   },
 ];
