@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { compose } from 'redux';
 import { AgGridReact } from 'ag-grid-react';
-import axios from 'axios';
 import 'ag-grid-enterprise';
 import 'ag-grid-community/dist/styles/ag-grid.css';
 import 'ag-grid-community/dist/styles/ag-theme-material.css';
@@ -9,6 +8,7 @@ import withTasks from 'containers/WithTasks';
 import TableWrapper from 'components/TableWrapper';
 import columnConfig from './columnConfig';
 import getContextMenuItems from './contextMenuParams';
+import { editTask } from 'services/TasksApiWrapper';
 
 class TasksTable extends Component {
   state = {
@@ -29,19 +29,12 @@ class TasksTable extends Component {
   };
 
   onCellValueChanged = params => {
-    axios.post(`/api/task`, params.data);
+    editTask(params.data);
   };
 
   render() {
     return (
-      <TableWrapper
-        style={{
-          height: '100%',
-          width: '90%',
-          margin: '0 auto',
-        }}
-        className="ag-theme-material"
-      >
+      <TableWrapper className="ag-theme-material">
         <AgGridReact
           columnDefs={this.state.columnDefs}
           rowData={this.props.tasks}
@@ -49,7 +42,6 @@ class TasksTable extends Component {
           onGridReady={this.onGridReady}
           onCellValueChanged={this.onCellValueChanged}
           getContextMenuItems={getContextMenuItems}
-          // debug
           animateRows
         />
       </TableWrapper>
