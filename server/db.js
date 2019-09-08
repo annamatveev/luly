@@ -1,4 +1,5 @@
 const { MongoClient } = require('mongodb');
+const config = require('./config');
 
 const state = {
   db: null,
@@ -9,7 +10,7 @@ exports.connect = function(url, done) {
 
   MongoClient.connect(url, function(err, client) {
     if (err) return done(err);
-    state.db = client.db('luly');
+    state.db = client.db(config.db_name);
     done();
   });
 };

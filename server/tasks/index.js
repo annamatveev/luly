@@ -23,7 +23,6 @@ function deleteTask(taskId) {
   return new Promise(resolve => {
     const collection = db.get().collection('tasks');
     collection.findOne({ _id: ObjectId(taskId) }, function(err, task) {
-      console.log(task);
       collection
         .replaceOne(
           { _id: ObjectId(taskId) },

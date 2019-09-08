@@ -2,7 +2,6 @@
 
 const express = require('express');
 const logger = require('./logger');
-const _ = require('lodash');
 const argv = require('./argv');
 const port = require('./port');
 const setup = require('./middlewares/frontendMiddleware');
@@ -21,10 +20,6 @@ app.use(bodyParser.json());
 
 const db = require('./db');
 const config = require('./config');
-const defaultConfig = config.development;
-const environment = process.env.NODE_ENV || 'development';
-const environmentConfig = config[environment];
-const finalConfig = _.merge(defaultConfig, environmentConfig);
 
 // In production we need to pass these values in instead of relying on webpack
 setup(app, {
@@ -44,8 +39,10 @@ app.get('*.js', (req, res, next) => {
   next();
 });
 
+console.log(config);
+
 // Connect to mongo
-db.connect(finalConfig.mongodb_uri, function(err) {
+db.connect(config.mongodb_uri, function(err) {
   if (err) {
     console.log('Unable to connect to Mongo.');
     process.exit(1);
