@@ -10,7 +10,7 @@ import TableWrapper from 'components/TableWrapper';
 import columnConfig from './columnConfig';
 import getContextMenuItems from './contextMenuParams';
 
-class Table extends Component {
+class TasksTable extends Component {
   state = {
     columnDefs: columnConfig,
     defaultColDef: {
@@ -57,4 +57,4 @@ class Table extends Component {
   }
 }
 
-export default compose(withTasks)(Table);
+export default compose(withTasks)(TasksTable);
