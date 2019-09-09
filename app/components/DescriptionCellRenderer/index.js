@@ -5,6 +5,10 @@ import DefaultDescription from 'components/DefaultDescription';
 
 const EPIC_SEPARATOR = '>';
 function DescriptionCellRenderer(props) {
+
+  if (!props.value) {
+    return React.Fragment;
+  }
   let epic;
   let description;
   if (props.value.includes('>')) {

@@ -2,16 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-const StoryPointsWrapper = styled.div`
+const NumberWrapper = styled.div`
   text-align: center;
   cursor: pointer;
   color: #737373;
 `;
 
-export default function StoryPointsCellRenderer(props) {
-  return <StoryPointsWrapper>{props.value}</StoryPointsWrapper>;
+export default function NumberCellRenderer(props) {
+  return <NumberWrapper>{props.value}</NumberWrapper>;
 }
 
-StoryPointsCellRenderer.propTypes = {
+NumberCellRenderer.propTypes = {
   value: PropTypes.number,
 };

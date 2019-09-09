@@ -2,7 +2,7 @@ import JiraIssueCellRenderer from 'components/JiraIssueCellRenderer';
 import OwnerCellRenderer from 'components/OwnerCellRenderer';
 import statusCellRenderer from 'components/StatusCellRenderer';
 import priorityCellRenderer from 'components/PriorityCellRenderer';
-import StoryPointsCellRenderer from 'components/StoryPointsCellRenderer';
+import NumberCellRenderer from 'components/NumberCellRenderer';
 import DescriptionCellRenderer from 'components/DescriptionCellRenderer';
 import PriorityComparator from './priorityComparator';
 
@@ -56,22 +56,30 @@ export default [
   {
     field: 'estimated_sp',
     headerName: 'Estimated Effort',
-    width: 100,
-    minWidth: 100,
-    cellRendererFramework: StoryPointsCellRenderer,
+    width: 70,
+    minWidth: 70,
+    cellRendererFramework: NumberCellRenderer,
   },
   {
     field: 'actual_sp',
     headerName: 'Actual Effort',
-    width: 100,
-    minWidth: 100,
-    cellRendererFramework: StoryPointsCellRenderer,
+    width: 70,
+    minWidth: 70,
+    cellRendererFramework: NumberCellRenderer,
   },
   {
     field: 'jira_issue',
     headerName: 'Jira Issue',
-    width: 100,
-    minWidth: 100,
+    width: 70,
+    minWidth: 70,
     cellRendererFramework: JiraIssueCellRenderer,
+  },
+  {
+    field: 'iteration',
+    headerName: 'Iteration',
+    width: 70,
+    minWidth: 70,
+    rowGroup: true,
+    cellRendererFramework: NumberCellRenderer,
   },
 ];

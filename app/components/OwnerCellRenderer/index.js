@@ -26,7 +26,9 @@ const useStyles = makeStyles(theme => ({
 
 export default function OwnerCellRenderer(props) {
   const classes = useStyles();
-
+  if (!props.value) {
+    return React.Fragment;
+  }
   const acronym = (
     props.value.charAt(0) +
     props.value

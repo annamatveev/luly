@@ -6,10 +6,11 @@ import 'ag-grid-community/dist/styles/ag-grid.css';
 import 'ag-grid-community/dist/styles/ag-theme-material.css';
 import withTasks from 'containers/WithTasks';
 import TableWrapper from 'components/TableWrapper';
-import { editTask } from 'services/TasksApiWrapper';
+import { editTask, addTask, deleteTask } from 'services/TasksApiWrapper';
 import PropTypes from 'prop-types';
+import IterationCellRenderer from 'components/IterationCellRenderer';
 import columnConfig from './columnConfig';
-import getContextMenuItems from './contextMenuParams';
+import makeGetContextMenuItems from './contextMenuParams';
 
 class TasksTable extends Component {
   state = {
@@ -20,6 +21,17 @@ class TasksTable extends Component {
       filter: true,
       resizable: true,
     },
+    defaultGroupSortComparator(nodeA, nodeB) {
+      if (nodeA.key > nodeB.key) {
+        return -1;
+      }
+      if (nodeA.key < nodeB.key) {
+        return 1;
+      }
+      return 0;
+    },
+    groupDefaultExpanded: -1,
+    groupRowInnerRendererFramework: IterationCellRenderer,
   };
 
   onGridReady = params => {
@@ -42,7 +54,13 @@ class TasksTable extends Component {
           defaultColDef={this.state.defaultColDef}
           onGridReady={this.onGridReady}
           onCellValueChanged={this.onCellValueChanged}
-          getContextMenuItems={getContextMenuItems}
+          getContextMenuItems={makeGetContextMenuItems(deleteTask, addTask)}
+          groupUseEntireRow
+          defaultGroupSortComparator={this.state.defaultGroupSortComparator}
+          groupDefaultExpanded={this.state.groupDefaultExpanded}
+          groupRowInnerRendererFramework={
+            this.state.groupRowInnerRendererFramework
+          }
           animateRows
         />
       </TableWrapper>

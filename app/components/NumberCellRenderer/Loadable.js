@@ -1,6 +1,6 @@
 /**
  *
- * Asynchronously loads the component for StoryPointsCellRenderer
+ * Asynchronously loads the component for NumberCellRenderer
  *
  */
 
