@@ -87,7 +87,7 @@
     "ip": "1.1.5",
     "lodash": "^4.17.15",
     "material-color-hash": "^0.1.6",
-    "minimist": "1.2.0",
+    "minimist": "1.2.6",
     "mongodb": "^3.3.0",
     "prop-types": "15.7.2",
     "react": "16.8.6",
